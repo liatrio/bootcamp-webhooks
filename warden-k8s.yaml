@@ -9,7 +9,8 @@ spec:
   restartPolicy: OnFailure
   containers:
     - name: warden
-      image: ACCOUNT/webhooks:latest
+      image: REPO/webhooks:latest
+      imagePullPolicy: Always
       volumeMounts:
         - name: certs
           mountPath: "/app/certs"
