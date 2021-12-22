@@ -9,7 +9,7 @@ Controller using python.
 
 Steps to deploy and test this admission controller.
 
-1. Fork the [https://github.com/ssmathistad/bootcamp-webhooks]("webhooks") repository.
+1. Fork the [webhooks](https://github.com/ssmathistad/bootcamp-webhooks) repository.
 
 2. Deploy a KIND cluster with Admission Controller enabled
 
