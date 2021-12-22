@@ -9,13 +9,15 @@ Controller using python.
 
 Steps to deploy and test this admission controller.
 
-1. Deploy a KIND cluster with Admission Controller enabled
+1. Fork the [https://github.com/ssmathistad/bootcamp-webhooks]("webhooks") repository.
+
+2. Deploy a KIND cluster with Admission Controller enabled
 
    ```bash
    kind create cluster --config kind.yaml
    ```
 
-2. Install cert-manager
+3. Install cert-manager
 
    ```bash
    # Add the Jetstack Helm repository
@@ -33,12 +35,9 @@ Steps to deploy and test this admission controller.
    jetstack/cert-manager
    ```
 
-3. Create the validation namespace, the root CA, and self signed certificate.
-    ```
-    kubectl apply -f certs.yaml
-    ```
+4. Create the validation namespace, the root CA, and self signed certificate by applying the `certs.yaml` file.
 
-4. Get the base64 value of the ca.crt file in the secret
+5. Get the base64 value of the ca.crt file in the secret
     ``` 
     CA=`kubectl -n validation get secret validation-ca-tls -o jsonpath='{.data.ca\.crt}'` 
     ```
