@@ -1,4 +1,4 @@
-# 7.5 Webhooks
+# Liatrio Bootcamp - 7.5 Webhooks
 
 ## Webhooks in Kubernetes
 
@@ -15,7 +15,7 @@ Steps to deploy and test this admission controller.
    kind create cluster --config kind.yaml
    ```
 
-1. Install cert-manager
+2. Install cert-manager
 
    ```bash
    # Add the Jetstack Helm repository
@@ -32,6 +32,16 @@ Steps to deploy and test this admission controller.
    --version v1.6.1 \
    jetstack/cert-manager
    ```
+
+3. Create the validation namespace, the root CA, and self signed certificate.
+    ```
+    kubectl apply -f certs.yaml
+    ```
+
+4. Get the base64 value of the ca.crt file in the secret
+    ``` 
+    CA=`kubectl -n validation get secret validation-ca-tls -o jsonpath='{.data.ca\.crt}'` 
+    ```
 
 ### Validating Webhooks
 
